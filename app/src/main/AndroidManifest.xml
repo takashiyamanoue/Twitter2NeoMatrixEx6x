@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="org.yamalab.twitter2neomatrixex6x" android:versionCode="2" android:versionName="1.1"
+    tools:ignore="GradleOverrides">
+
+    <uses-feature android:name="android.hardware.usb.accessory" />
+    <uses-sdk android:minSdkVersion="15" android:targetSdkVersion="27" />
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+
+    <application android:icon="@drawable/ic_launcher_demokit"
+        android:label="@string/app_name" android:theme="@android:style/Theme.NoTitleBar" >
+        <uses-library android:name="com.android.future.usb.accessory" />
+        <activity android:name="org.yamalab.twitter2neomatrixex6x.AdkTwitterLaunch" android:label="@string/app_name"
+            android:configChanges="orientation|keyboardHidden" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="myapp" android:host="oauth"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="org.yamalab.twitter2neomatrixex6x.UsbAccessoryActivity" android:label="DemoKit"
+            android:taskAffinity="" android:launchMode="singleInstance">
+            <intent-filter>
+                <action android:name="android.hardware.usb.action.USB_ACCESSORY_ATTACHED" />
+            </intent-filter>
+            <meta-data android:name="android.hardware.usb.action.USB_ACCESSORY_ATTACHED"
+                android:resource="@xml/accessory_filter" />
+        </activity>
+        <activity android:name="org.yamalab.twitter2neomatrixex6x.AdkTwitterActivity" android:label="@string/app_name"
+            android:screenOrientation="portrait">
+        </activity>
+        <service android:name="org.yamalab.twitter2neomatrixex6x.service.AdkService" />
+    </application>
+
+</manifest>
