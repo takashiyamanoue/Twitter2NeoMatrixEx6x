@@ -106,6 +106,7 @@
     <string name="locationSend">"sending "</string>
 	<string-array name="sendingIntervalItems">
 		<item>1-min</item>
+		<item>2-min</item>
 		<item>5-min</item>
 		<item>10-min</item>
 		</string-array>

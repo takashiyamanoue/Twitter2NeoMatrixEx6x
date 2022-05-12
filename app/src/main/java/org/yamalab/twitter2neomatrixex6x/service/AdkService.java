@@ -139,6 +139,15 @@ public class AdkService extends Service
 							"http://maps.google.co.jp/maps?" +
 									"f=q&hl=ja&geocode=&q=" + latitude + "," + longitude
 					);
+					try{
+						Thread.sleep((long)(5000));
+					}
+					catch(Exception e){
+
+					}
+					sendCommandToTwitter("tweet",
+							"gps," + latitude + "," + longitude
+					);
 				}
 			}
 
@@ -804,6 +813,15 @@ public class AdkService extends Service
 									"http://maps.google.co.jp/maps?" +
 											"f=q&hl=ja&geocode=&q=" + latitude + "," + longitude
 							);
+							try{
+								Thread.sleep((long)(5000));
+							}
+							catch(Exception e){
+
+							}
+							sendCommandToTwitter("tweet",
+									"gps," + latitude + "," + longitude
+							);
 						}
 					}
 
@@ -971,6 +989,15 @@ public class AdkService extends Service
 				"http://maps.google.co.jp/maps?"+
 		        "f=q&hl=ja&geocode=&q="+latitude+","+longitude
 		        );
+			try{
+				Thread.sleep((long)(5000));
+			}
+			catch(Exception e){
+
+			}
+			this.sendCommandToTwitter("tweet",
+					"gps,"+latitude+","+longitude
+			);
 		}
 	}
 	@Override
